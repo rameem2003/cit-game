@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaSccript Number Guessing Game</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- navber start -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">CIT Game 1</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link px-3 btn btn-primary text-light fw-bold active"
+                aria-current="page"
+                target="_blank"
+                href="https://github.com/rameem2003"
+                >Github</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- navber end -->
+
+    <div class="wrapper bg-light w-50 p-3 rounded">
+      <h4 class="fw-bold text-center">JavaScript Number Guessing Game</h4>
+
+      <p class="text-center">By Mahmood Hassan Rameem</p>
+
+      <div class="row">
+        <div class="col-lg-6 player-1">
+          <h2>Player 1</h2>
+
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              id="playerOneInput"
+              placeholder="name@example.com"
+            />
+            <label for="playerOneInput">Enter Your Number</label>
+            <p class="text-danger fw-bold" id="playerOneValidation"></p>
+          </div>
+          <button class="btn btn-danger" id="playerOneBtn">Submit</button>
+        </div>
+
+        <div class="col-lg-6 player-2 disable">
+          <h2>Player 2</h2>
+
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              id="playerTwoInput"
+              placeholder="name@example.com"
+            />
+            <label for="playerTwoInput">Enter Your Number</label>
+            <p class="text-danger fw-bold" id="playerTwoValidation"></p>
+          </div>
+
+          <button class="btn btn-danger" id="playerTwoBtn">Submit</button>
+        </div>
+      </div>
+
+      <div class="row py-4 mt-3 bg-primary rounded resultScreen d-none">
+        <div class="col-12">
+          <h1 class="text-center text-light" id="resultText"></h1>
+        </div>
+
+        <button class="btn btn-danger w-50 mx-auto" id="reset" type="button">
+          Reset Game
+        </button>
+      </div>
+    </div>
+
+    <!-- footer start -->
+    <footer class="bg-light p-3 fixed-bottom">
+      <p class="p-0 m-0 text-center fw-bold">
+        &copy; 2023 Mahmood Hassan Rameem. All Rights Resurved.
+      </p>
+    </footer>
+    <!-- footer end -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
