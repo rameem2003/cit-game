@@ -20,6 +20,7 @@ const reset = document.getElementById("reset");
 
 let playerOnevalue = "";
 let playerTwoValue = "";
+let chance = 4;
 // console.log(playerTwoSubmit);
 
 const validationMessage = (element, message) => {
@@ -32,16 +33,18 @@ const validationMessage = (element, message) => {
 const declareResult = () => {
   if (playerOnevalue == playerTwoValue) {
     resultScreen.classList.remove("d-none");
-    resultText.innerHTML = "Loading....";
-    setTimeout(() => {
-      resultText.innerHTML = "Player 2 Winner";
-    }, 2000);
+    resultText.innerHTML = "Player 2 Winner";
+    // resultText.innerHTML = "Loading....";
+    // setTimeout(() => {
+    //   resultText.innerHTML = "Player 2 Winner";
+    // }, 2000);
   } else {
     resultScreen.classList.remove("d-none");
-    resultText.innerHTML = "Loading....";
-    setTimeout(() => {
-      resultText.innerHTML = "Player 1 Winner";
-    }, 2000);
+    resultText.innerHTML = "Player 1 Winner";
+    // resultText.innerHTML = "Loading....";
+    // setTimeout(() => {
+    //   resultText.innerHTML = "Player 1 Winner";
+    // }, 2000);
   }
 };
 
@@ -72,18 +75,34 @@ playerOneSubmit.addEventListener("click", () => {
 // Event for player two button
 playerTwoSubmit.addEventListener("click", () => {
   playerTwoValue = playerTwoInput.value;
+  chance--;
+  // console.log(chance);
 
   if (playerTwoValue == "") {
     validationMessage(
       playerTwoValid,
-      "Input Is Empty. Please Enter A Valid Number"
+      `Input Is Empty. Please Enter A Valid Number.`
     );
+  } else if (isNaN(playerTwoValue)) {
+    validationMessage(playerTwoValid, `Please Enter Only Number.`);
   } else if (playerTwoValue >= 10) {
-    validationMessage(playerTwoValid, "Number Input Must Be In 0 - 9");
+    validationMessage(playerTwoValid, `Number Input Must Be In 0 - 9.`);
   } else if (playerTwoValue <= 0) {
-    validationMessage(playerTwoValid, "Nagative Number Not Allowed");
+    validationMessage(playerTwoValid, `Nagative Number Not Allowed.`);
+  } else if (playerOnevalue != playerTwoValue && chance > 0) {
+    validationMessage(
+      playerTwoValid,
+      `Wrong! You Have Only ${chance} ${chance == 1 ? "Chance" : "Chances"}`
+    );
+  } else if (playerOnevalue != playerTwoValue && chance == 0) {
+    playerOneBox.classList.add("d-none");
+    playerTowBox.classList.add("d-none");
+    validationMessage(playerTwoValid, "");
+    declareResult();
   } else {
-    playerTowBox.classList.add("disable");
+    // playerTowBox.classList.add("disable");
+    playerOneBox.classList.add("d-none");
+    playerTowBox.classList.add("d-none");
     validationMessage(playerTwoValid, "");
     declareResult();
   }
